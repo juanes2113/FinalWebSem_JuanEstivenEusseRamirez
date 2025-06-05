@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Servicios Empresariales</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">ServiciosEmp</h1>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="contacto.html" class="active">Contacto</a></li>
+                <li><a href="acerca.html">Acerca de</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="contacto-section">
+            <h2>Contáctanos</h2>
+            <form id="contactForm" class="contacto-form">
+                <div class="form-group">
+                    <label for="remitente">Nombre:</label>
+                    <input type="text" id="remitente" name="remitente" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="contenido">Mensaje:</label>
+                    <textarea id="contenido" name="contenido" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn">Enviar Mensaje</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Servicios Empresariales. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/contacto.js"></script>
+</body>
+</html> 
