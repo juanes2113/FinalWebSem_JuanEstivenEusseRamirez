@@ -23,6 +23,34 @@ const AgenteServicio = {
         } catch (error) {
             res.status(500).json({ mensaje: 'Error al obtener el servicio', error: error.message });
         }
+    },
+
+    // Crear un nuevo servicio
+    crearServicio: async (req, res) => {
+        try {
+            const { titulo, descripcion, costo } = req.body;
+            
+            // Validar que todos los campos requeridos estén presentes
+            if (!titulo || !descripcion || !costo) {
+                return res.status(400).json({ 
+                    mensaje: 'Todos los campos son requeridos (titulo, descripcion, costo)' 
+                });
+            }
+
+            const nuevoServicio = new Servicio({
+                titulo,
+                descripcion,
+                costo
+            });
+
+            const servicioGuardado = await nuevoServicio.save();
+            res.status(201).json(servicioGuardado);
+        } catch (error) {
+            res.status(500).json({ 
+                mensaje: 'Error al crear el servicio', 
+                error: error.message 
+            });
+        }
     }
 };
 
