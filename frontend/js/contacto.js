@@ -1,7 +1,35 @@
 // Configuración de la API
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'http://localhost:32426/api';
 
-// Función para manejar el envío del formulario
+// Función para mostrar mensajes de éxito
+function mostrarMensajeExito(mensaje) {
+    const mensajeDiv = document.createElement('div');
+    mensajeDiv.className = 'mensaje-exito';
+    mensajeDiv.textContent = mensaje;
+    
+    const form = document.getElementById('contactForm');
+    form.parentNode.insertBefore(mensajeDiv, form);
+
+    setTimeout(() => {
+        mensajeDiv.remove();
+    }, 3000);
+}
+
+// Función para mostrar mensajes de error
+function mostrarError(mensaje) {
+    const mensajeDiv = document.createElement('div');
+    mensajeDiv.className = 'error-mensaje';
+    mensajeDiv.textContent = mensaje;
+    
+    const form = document.getElementById('contactForm');
+    form.parentNode.insertBefore(mensajeDiv, form);
+
+    setTimeout(() => {
+        mensajeDiv.remove();
+    }, 3000);
+}
+
+// Manejar el envío del formulario
 document.getElementById('contactForm').addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -20,31 +48,14 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
             body: JSON.stringify(formData)
         });
 
-        const data = await response.json();
-
         if (response.ok) {
-            mostrarMensaje('¡Mensaje enviado con éxito!', 'success');
+            mostrarMensajeExito('Mensaje enviado exitosamente');
             document.getElementById('contactForm').reset();
         } else {
-            mostrarMensaje('Error al enviar el mensaje. Por favor, intente nuevamente.', 'error');
+            throw new Error('Error al enviar el mensaje');
         }
     } catch (error) {
         console.error('Error:', error);
-        mostrarMensaje('Error al enviar el mensaje. Por favor, intente nuevamente.', 'error');
+        mostrarError('Error al enviar el mensaje. Por favor, intente nuevamente.');
     }
-});
-
-// Función para mostrar mensajes de éxito o error
-function mostrarMensaje(mensaje, tipo) {
-    const mensajeDiv = document.createElement('div');
-    mensajeDiv.className = `mensaje ${tipo}`;
-    mensajeDiv.textContent = mensaje;
-
-    const form = document.getElementById('contactForm');
-    form.parentNode.insertBefore(mensajeDiv, form);
-
-    // Remover el mensaje después de 3 segundos
-    setTimeout(() => {
-        mensajeDiv.remove();
-    }, 3000);
-} 
+}); 

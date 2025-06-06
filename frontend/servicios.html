@@ -20,8 +20,24 @@
     </nav>
 
     <main class="container">
-        <section class="servicios-section">
+        <!-- Título y Barra de Búsqueda -->
+        <section class="servicios-header">
             <h2>Nuestros Servicios</h2>
+            <div class="acciones-servicios">
+                <div class="buscar-servicio-form">
+                    <input type="text" id="servicioId" placeholder="Buscar servicio por ID">
+                    <button onclick="buscarServicioPorId()" class="btn-secondary">Buscar</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resultado de Búsqueda Individual -->
+        <div id="servicio-individual" class="servicio-individual">
+            <!-- El servicio individual se mostrará aquí -->
+        </div>
+
+        <!-- Lista de Servicios -->
+        <section class="servicios-section">
             <div id="servicios-grid" class="servicios-grid">
                 <!-- Los servicios se cargarán dinámicamente aquí -->
             </div>

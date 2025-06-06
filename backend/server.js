@@ -13,9 +13,32 @@ app.use(cors());
 app.use(express.json());
 
 // Conexión a MongoDB
-mongoose.connect(process.env.MONGODB_URI)
-    .then(() => console.log('Conectado a MongoDB Atlas'))
-    .catch(err => console.error('Error de conexión a MongoDB:', err));
+mongoose.connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 5000,
+    socketTimeoutMS: 45000,
+})
+.then(() => {
+    console.log('Conectado a MongoDB Atlas');
+})
+.catch(err => {
+    console.error('Error de conexión a MongoDB:', err.message);
+    process.exit(1);
+});
+
+// Manejo de eventos de conexión
+mongoose.connection.on('connected', () => {
+    console.log('Mongoose conectado a MongoDB');
+});
+
+mongoose.connection.on('error', (err) => {
+    console.error('Error en la conexión de Mongoose:', err.message);
+});
+
+mongoose.connection.on('disconnected', () => {
+    console.log('Mongoose desconectado de MongoDB');
+});
 
 // Rutas
 app.use('/api', servicioRoutes);

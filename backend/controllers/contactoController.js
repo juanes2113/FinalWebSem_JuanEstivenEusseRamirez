@@ -2,6 +2,24 @@ const MensajeContacto = require('../models/MensajeContacto');
 
 // AgenteContacto: Maneja el guardado de mensajes de contacto
 const AgenteContacto = {
+    // Obtener todos los mensajes de contacto
+    obtenerMensajes: async (req, res) => {
+        try {
+            const mensajes = await MensajeContacto.find()
+                .sort({ createdAt: -1 }); // Ordenar por fecha de creación, más recientes primero
+            
+            res.status(200).json({
+                mensaje: 'Mensajes recuperados exitosamente',
+                data: mensajes
+            });
+        } catch (error) {
+            res.status(500).json({ 
+                mensaje: 'Error al obtener los mensajes de contacto', 
+                error: error.message 
+            });
+        }
+    },
+
     // Guardar un nuevo mensaje de contacto
     guardarMensaje: async (req, res) => {
         try {
