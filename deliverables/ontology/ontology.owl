@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.example.org/ontology#"
+     xml:base="http://www.example.org/ontology"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.example.org/ontology"/>
+
+    <!-- Classes -->
+    <owl:Class rdf:about="#Service"/>
+    <owl:Class rdf:about="#ContactMessage"/>
+
+    <!-- Data properties for Service -->
+    <owl:DatatypeProperty rdf:about="#title">
+        <rdfs:domain rdf:resource="#Service"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="#description">
+        <rdfs:domain rdf:resource="#Service"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="#cost">
+        <rdfs:domain rdf:resource="#Service"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+    <!-- Data properties for ContactMessage -->
+    <owl:DatatypeProperty rdf:about="#sender">
+        <rdfs:domain rdf:resource="#ContactMessage"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="#email">
+        <rdfs:domain rdf:resource="#ContactMessage"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="#content">
+        <rdfs:domain rdf:resource="#ContactMessage"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+</rdf:RDF> 

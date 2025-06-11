@@ -1,4 +1,25 @@
-# Ontología Conceptual del Sistema
+# Ontología Conceptual
+
+## Diagrama de la Ontología
+
+```mermaid
+classDiagram
+    class Servicio {
+        +String titulo
+        +String descripcion
+        +Number costo
+    }
+    class MensajeContacto {
+        +String remitente
+        +String email
+        +String contenido
+    }
+```
+
+## Descripción textual
+
+- **Servicio:** Representa un servicio ofrecido por la plataforma. Tiene título, descripción y costo.
+- **Mensaje de Contacto:** Representa un mensaje enviado por un usuario a través del formulario de contacto. Incluye remitente, email y contenido.
 
 ## Clases de Agentes
 
