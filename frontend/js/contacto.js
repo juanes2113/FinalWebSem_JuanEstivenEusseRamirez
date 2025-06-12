@@ -6,7 +6,7 @@ function mostrarMensajeExito(mensaje) {
     const mensajeDiv = document.createElement('div');
     mensajeDiv.className = 'mensaje-exito';
     mensajeDiv.textContent = mensaje;
-    
+
     const form = document.getElementById('contactForm');
     form.parentNode.insertBefore(mensajeDiv, form);
 
@@ -20,7 +20,7 @@ function mostrarError(mensaje) {
     const mensajeDiv = document.createElement('div');
     mensajeDiv.className = 'error-mensaje';
     mensajeDiv.textContent = mensaje;
-    
+
     const form = document.getElementById('contactForm');
     form.parentNode.insertBefore(mensajeDiv, form);
 
@@ -36,16 +36,16 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
     const formData = {
         remitente: document.getElementById('remitente').value,
         email: document.getElementById('email').value,
-        contenido: document.getElementById('contenido').value
+        contenido: document.getElementById('contenido').value,
     };
 
     try {
         const response = await fetch(`${API_URL}/contacto`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             },
-            body: JSON.stringify(formData)
+            body: JSON.stringify(formData),
         });
 
         if (response.ok) {
@@ -56,6 +56,8 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
         }
     } catch (error) {
         console.error('Error:', error);
-        mostrarError('Error al enviar el mensaje. Por favor, intente nuevamente.');
+        mostrarError(
+            'Error al enviar el mensaje. Por favor, intente nuevamente.'
+        );
     }
-}); 
+});

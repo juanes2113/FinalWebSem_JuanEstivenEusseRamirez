@@ -9,7 +9,9 @@ async function cargarServicios() {
         mostrarServicios(servicios);
     } catch (error) {
         console.error('Error al cargar los servicios:', error);
-        mostrarError('No se pudieron cargar los servicios. Por favor, intente más tarde.');
+        mostrarError(
+            'No se pudieron cargar los servicios. Por favor, intente más tarde.'
+        );
     }
 }
 
@@ -19,11 +21,12 @@ function mostrarServicios(servicios) {
     serviciosGrid.innerHTML = '';
 
     if (servicios.length === 0) {
-        serviciosGrid.innerHTML = '<p class="no-servicios">No hay servicios disponibles.</p>';
+        serviciosGrid.innerHTML =
+            '<p class="no-servicios">No hay servicios disponibles.</p>';
         return;
     }
 
-    servicios.forEach(servicio => {
+    servicios.forEach((servicio) => {
         const servicioCard = document.createElement('div');
         servicioCard.className = 'servicio-card';
         servicioCard.innerHTML = `
@@ -53,7 +56,9 @@ async function buscarServicioPorId() {
         mostrarServicioIndividual(servicio);
     } catch (error) {
         console.error('Error al buscar el servicio:', error);
-        mostrarErrorServicioIndividual('No se pudo encontrar el servicio especificado');
+        mostrarErrorServicioIndividual(
+            'No se pudo encontrar el servicio especificado'
+        );
     }
 }
 
@@ -85,7 +90,7 @@ function mostrarError(mensaje) {
     const mensajeDiv = document.createElement('div');
     mensajeDiv.className = 'error-mensaje';
     mensajeDiv.textContent = mensaje;
-    
+
     const header = document.querySelector('.servicios-header');
     header.insertAdjacentElement('afterend', mensajeDiv);
 
@@ -95,4 +100,4 @@ function mostrarError(mensaje) {
 }
 
 // Cargar los servicios cuando la página se cargue
-document.addEventListener('DOMContentLoaded', cargarServicios); 
+document.addEventListener('DOMContentLoaded', cargarServicios);

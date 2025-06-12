@@ -5,17 +5,18 @@ const AgenteContacto = {
     // Obtener todos los mensajes de contacto
     obtenerMensajes: async (req, res) => {
         try {
-            const mensajes = await MensajeContacto.find()
-                .sort({ createdAt: -1 }); // Ordenar por fecha de creación, más recientes primero
-            
+            const mensajes = await MensajeContacto.find().sort({
+                createdAt: -1,
+            }); // Ordenar por fecha de creación, más recientes primero
+
             res.status(200).json({
                 mensaje: 'Mensajes recuperados exitosamente',
-                data: mensajes
+                data: mensajes,
             });
         } catch (error) {
-            res.status(500).json({ 
-                mensaje: 'Error al obtener los mensajes de contacto', 
-                error: error.message 
+            res.status(500).json({
+                mensaje: 'Error al obtener los mensajes de contacto',
+                error: error.message,
             });
         }
     },
@@ -24,25 +25,25 @@ const AgenteContacto = {
     guardarMensaje: async (req, res) => {
         try {
             const { remitente, email, contenido } = req.body;
-            
+
             const nuevoMensaje = new MensajeContacto({
                 remitente,
                 email,
-                contenido
+                contenido,
             });
 
             const mensajeGuardado = await nuevoMensaje.save();
             res.status(201).json({
                 mensaje: 'Mensaje de contacto guardado exitosamente',
-                data: mensajeGuardado
+                data: mensajeGuardado,
             });
         } catch (error) {
-            res.status(500).json({ 
-                mensaje: 'Error al guardar el mensaje de contacto', 
-                error: error.message 
+            res.status(500).json({
+                mensaje: 'Error al guardar el mensaje de contacto',
+                error: error.message,
             });
         }
-    }
+    },
 };
 
-module.exports = AgenteContacto; 
+module.exports = AgenteContacto;

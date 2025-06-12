@@ -1,11 +1,11 @@
 /* Variables de colores - Paleta profesional y moderna */
 :root {
-    --primary-color: #2c3e50;    /* Azul oscuro */
-    --secondary-color: #3498db;  /* Azul claro */
-    --accent-color: #e74c3c;     /* Rojo */
-    --light-color: #ecf0f1;      /* Gris claro */
-    --dark-color: #2c3e50;       /* Azul oscuro */
-    --text-color: #333333;       /* Texto principal */
+    --primary-color: #2c3e50; /* Azul oscuro */
+    --secondary-color: #3498db; /* Azul claro */
+    --accent-color: #e74c3c; /* Rojo */
+    --light-color: #ecf0f1; /* Gris claro */
+    --dark-color: #2c3e50; /* Azul oscuro */
+    --text-color: #333333; /* Texto principal */
 }
 
 /* Reset y estilos base */
@@ -32,7 +32,7 @@ body {
 .navbar {
     background-color: var(--primary-color);
     padding: 1rem 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .navbar .container {
@@ -116,7 +116,7 @@ body {
     background-color: white;
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
@@ -136,7 +136,7 @@ body {
     background-color: white;
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Formulario de contacto */
@@ -229,7 +229,7 @@ body {
     background-color: white;
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
@@ -412,4 +412,4 @@ footer {
     font-size: 0.8rem;
     margin-top: 1rem;
     text-align: right;
-} 
+}
