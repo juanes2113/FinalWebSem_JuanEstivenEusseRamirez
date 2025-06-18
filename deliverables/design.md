@@ -126,9 +126,9 @@
    # Servir archivos estáticos con un servidor web
    # Por ejemplo, usando Python:
    cd frontend
-   python -m http.server 8000
+   serve -l 3000
    ```
 
 3. **Acceso**
-   - Backend: http://localhost:5000
-   - Frontend: http://localhost:8000 
+   - Backend: http://localhost:32426
+   - Frontend: http://localhost:3000
