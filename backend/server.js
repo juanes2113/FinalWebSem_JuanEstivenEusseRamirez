@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const path = require('path');
 require('dotenv').config();
 
 const servicioRoutes = require('./routes/servicioRoutes');
@@ -9,6 +10,7 @@ const contactoRoutes = require('./routes/contactoRoutes');
 const app = express();
 
 // Middleware
+app.use(express.static(path.join(__dirname, 'dist')));
 app.use(cors());
 app.use(express.json());
 
