@@ -45,7 +45,7 @@ async function buscarServicioPorId() {
     }
 
     try {
-        const response = await fetch(`api/servicios`);
+        const response = await fetch(`api/servicios/${servicioId}`);
         if (!response.ok) {
             throw new Error('Servicio no encontrado');
         }
