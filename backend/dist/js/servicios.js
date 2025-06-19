@@ -1,10 +1,7 @@
-// Configuración de la API
-const API_URL = 'http://localhost:32426/api';
 
-// Función para cargar los servicios
 async function cargarServicios() {
     try {
-        const response = await fetch(`${API_URL}/servicios`);
+        const response = await fetch(`api/servicios`);
         const servicios = await response.json();
         mostrarServicios(servicios);
     } catch (error) {
