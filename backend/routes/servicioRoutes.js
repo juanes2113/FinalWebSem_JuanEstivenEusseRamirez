@@ -7,4 +7,4 @@ router.get('/servicios', AgenteServicio.obtenerServicios);
 router.get('/servicios/:id', AgenteServicio.obtenerServicioPorId);
 router.post('/servicios', AgenteServicio.crearServicio);
 
-module.exports = router; 
+module.exports = router;

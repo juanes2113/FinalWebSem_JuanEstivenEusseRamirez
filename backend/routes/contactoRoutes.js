@@ -6,4 +6,4 @@ const AgenteContacto = require('../controllers/contactoController');
 router.get('/contacto/mensajes', AgenteContacto.obtenerMensajes);
 router.post('/contacto', AgenteContacto.guardarMensaje);
 
-module.exports = router; 
+module.exports = router;

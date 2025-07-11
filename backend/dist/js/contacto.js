@@ -1,4 +1,5 @@
-
+// Configuración de la API
+const API_URL = 'http://localhost:32426/api';
 
 // Función para mostrar mensajes de éxito
 function mostrarMensajeExito(mensaje) {
@@ -39,7 +40,7 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
     };
 
     try {
-        const response = await fetch(`api/contacto`, {
+        const response = await fetch(`${API_URL}/contacto`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
